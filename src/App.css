@@ -31,6 +31,12 @@ ul {
 a {
   text-decoration: none;
 }
+h1,
+h2,
+h3,
+h4 {
+  text-transform: capitalize;
+}
 
 /* main container */
 .container {
@@ -40,10 +46,29 @@ a {
   grid-template-rows: 0.2fr 1fr;
 }
 
+/* search form container */
 .search-form-container {
-  height: 10vh;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.form-input {
+  width: 450px;
+  height: 50px;
+  border: none;
+  outline: none;
+  font-size: 30px;
+  background-color: #b8c1ec;
+  border-radius: 10px;
+}
+
+.form-input::placeholder {
+  color: var(--clr-headline);
 }
 
 .news-container {
-  height: 90vh;
+  height: 80vh;
 }
