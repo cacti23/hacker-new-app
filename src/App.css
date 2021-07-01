@@ -44,11 +44,12 @@ h4 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.2fr 1fr;
+  justify-content: center;
+  align-content: center;
 }
 
 /* search form container */
 .search-form-container {
-  height: 20vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -88,5 +89,4 @@ h4 {
 }
 
 .news-container {
-  height: 80vh;
 }
