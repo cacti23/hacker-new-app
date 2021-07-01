@@ -3,11 +3,12 @@
 
 /* variables */
 :root {
-  --clr-background: #232946;
-  --clr-headline: #fffffe;
-  --clr-paragraph: #b8c1ec;
-  --clr-button-text: #232946;
-  --clr-button: #eebbc3;
+  --clr-background: #fef6e4;
+  --clr-headline: #001858;
+  --clr-paragraph: #172c66;
+  --clr-button-text: #001858;
+  --clr-button: #f582ae;
+  --clr-input-color: #fef6e4;
 }
 
 /* global styles */
@@ -23,7 +24,6 @@ body {
   font-family: 'Karla', sans-serif;
   background-color: var(--clr-background);
   color: var(--clr-headline);
-  overflow: hidden;
 }
 ul {
   list-style-type: none;
@@ -101,7 +101,7 @@ h4 {
 .form-icon {
   margin-right: 10px;
   font-size: 50px;
-  color: var(--clr-headline);
+  color: var(--clr-input-color);
 }
 
 .form-input {
@@ -111,13 +111,18 @@ h4 {
   outline: none;
   font-size: 30px;
   background-color: transparent;
-  color: var(--clr-headline);
+  color: var(--clr-input-color);
 }
 
 .form-input::placeholder {
-  color: var(--clr-headline);
+  color: var(--clr-input-color);
 }
 
 .news-container {
   height: 80vh;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 10px;
 }

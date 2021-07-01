@@ -6,7 +6,7 @@ const HACKER_NEWS_API = 'http://hn.algolia.com/api/v1/search?';
 
 const initialState = {
   isLoading: false,
-  hits: [],
+  stories: [],
   query: 'react',
   page: 0,
 };

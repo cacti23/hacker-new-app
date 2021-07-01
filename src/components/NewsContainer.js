@@ -1,8 +1,10 @@
 import React from 'react';
 import { useGlobalContext } from '../context/context';
+import { IoMdClose } from 'react-icons/io';
+import dateFormat from 'dateformat';
 
 const NewsContainer = () => {
-  const { hits, isLoading } = useGlobalContext();
+  const { stories, isLoading } = useGlobalContext();
 
   if (isLoading) {
     return (
@@ -16,7 +18,20 @@ const NewsContainer = () => {
   }
   return (
     <div className='news-container'>
-      <h1>News Container</h1>
+      {stories.map(story => {
+        const { title, objectID: id, author, created_at } = story;
+        let date = new Date(created_at);
+        return (
+          <div className='news-card' key={id}>
+            <IoMdClose className='card-remove-icon' />
+            <h1 className='card-title'>{title}</h1>
+            <h2 className='card-author'>{author}</h2>
+            <h3 className='card-date'>
+              {dateFormat(date, 'ddd, mmm dS, yyyy')}
+            </h3>
+          </div>
+        );
+      })}
     </div>
   );
 };

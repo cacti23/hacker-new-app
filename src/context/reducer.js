@@ -10,7 +10,7 @@ const reducer = (state, action) => {
     case SET_STORIES:
       return {
         ...state,
-        hits: action.payload,
+        stories: action.payload,
       };
     case HANDLE_SEARCH:
       return {
