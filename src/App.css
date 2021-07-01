@@ -50,19 +50,37 @@ h4 {
 .search-form-container {
   height: 20vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 20px;
 }
 
+.search-form {
+  width: 600px;
+  height: 70px;
+  padding: 10px;
+  background-color: var(--clr-paragraph);
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.form-icon {
+  margin-right: 10px;
+  font-size: 50px;
+  color: var(--clr-headline);
+}
+
 .form-input {
-  width: 450px;
+  width: 540px;
   height: 50px;
   border: none;
   outline: none;
   font-size: 30px;
-  background-color: #b8c1ec;
-  border-radius: 10px;
+  background-color: transparent;
+  color: var(--clr-headline);
 }
 
 .form-input::placeholder {

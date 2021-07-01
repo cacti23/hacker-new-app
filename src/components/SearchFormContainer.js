@@ -1,9 +1,19 @@
 import React from 'react';
+import { FiSearch } from 'react-icons/fi';
 
 const SearchFormContainer = () => {
   return (
     <div className='search-form-container'>
-      <input type='text' placeholder='Search Stories' className='form-input' />
+      <div className='search-form'>
+        <FiSearch className='form-icon' />
+        <form>
+          <input
+            type='text'
+            placeholder='Search Stories.....'
+            className='form-input'
+          />
+        </form>
+      </div>
     </div>
   );
 };
