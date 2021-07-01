@@ -1,0 +1,49 @@
+/* importing fonts */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;600&display=swap');
+
+/* variables */
+:root {
+  --clr-background: #232946;
+  --clr-headline: #fffffe;
+  --clr-paragraph: #b8c1ec;
+  --clr-button-text: #232946;
+  --clr-button: #eebbc3;
+}
+
+/* global styles */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  background-color: var(--clr-background);
+  color: var(--clr-headline);
+  overflow: hidden;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+
+/* main container */
+.container {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 1fr;
+}
+
+.search-form-container {
+  height: 10vh;
+}
+
+.news-container {
+  height: 90vh;
+}

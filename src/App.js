@@ -1,9 +1,12 @@
+import NewsContainer from './components/NewsContainer';
+import SearchFormContainer from './components/SearchFormContainer';
 import './App.css';
 
 function App() {
   return (
-    <div className='App'>
-      <h1>hello</h1>
+    <div className='container'>
+      <SearchFormContainer />
+      <NewsContainer />
     </div>
   );
 }
