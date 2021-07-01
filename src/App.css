@@ -1,5 +1,5 @@
 /* importing fonts */
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,600;1,300;1,600&display=swap');
 
 /* variables */
 :root {
@@ -8,7 +8,10 @@
   --clr-paragraph: #172c66;
   --clr-button-text: #001858;
   --clr-button: #f582ae;
-  --clr-input-color: #fef6e4;
+  --clr-input: #fef6e4;
+  --clr-card: #f3d2c1;
+  --clr-loading: #8bd3dd;
+  --clr-search-form: #172c66;
 }
 
 /* global styles */
@@ -28,8 +31,12 @@ body {
 ul {
   list-style-type: none;
 }
-a {
+a,
+a:hover,
+a:focus,
+a:active {
   text-decoration: none;
+  color: inherit;
 }
 h1,
 h2,
@@ -54,10 +61,10 @@ h4 {
   width: 64px;
   height: 64px;
   margin: 8px;
-  border: 8px solid #fff;
+  border: 8px solid var(--clr-loading);
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
+  border-color: var(--clr-loading) transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
@@ -79,7 +86,8 @@ h4 {
 
 /* search form container */
 .search-form-container {
-  height: 20vh;
+  width: 100vw;
+  height: 150px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -90,7 +98,7 @@ h4 {
   width: 600px;
   height: 70px;
   padding: 10px;
-  background-color: var(--clr-paragraph);
+  background-color: var(--clr-search-form);
   border-radius: 10px;
   display: flex;
   justify-content: flex-start;
@@ -101,7 +109,7 @@ h4 {
 .form-icon {
   margin-right: 10px;
   font-size: 50px;
-  color: var(--clr-input-color);
+  color: var(--clr-input);
 }
 
 .form-input {
@@ -111,7 +119,7 @@ h4 {
   outline: none;
   font-size: 30px;
   background-color: transparent;
-  color: var(--clr-input-color);
+  color: var(--clr-input);
 }
 
 .form-input::placeholder {
@@ -119,10 +127,49 @@ h4 {
 }
 
 .news-container {
-  height: 80vh;
-  padding: 30px;
+  height: 100vh;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-bottom: 30px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-column-gap: 10px;
+  grid-row-gap: 0px;
+}
+
+.card {
+  height: 150px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--clr-card);
+  padding: 15px;
+  padding-right: 30px;
+  cursor: pointer;
+  line-height: 1.2;
+  color: var(--clr-headline);
+}
+
+.card-title {
+  font-size: 30px;
+  font-weight: 600;
+  font-style: italic;
+  color: #172c66;
+}
+
+.card-author {
+  font-size: 20px;
+}
+
+.card-date {
+  font-size: 15px;
+}
+
+.card-remove-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #001858;
 }

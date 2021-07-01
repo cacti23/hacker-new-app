@@ -19,17 +19,20 @@ const NewsContainer = () => {
   return (
     <div className='news-container'>
       {stories.map(story => {
-        const { title, objectID: id, author, created_at } = story;
+        const { title, objectID: id, author, created_at, url } = story;
         let date = new Date(created_at);
+        console.log(story);
         return (
-          <div className='news-card' key={id}>
-            <IoMdClose className='card-remove-icon' />
-            <h1 className='card-title'>{title}</h1>
-            <h2 className='card-author'>{author}</h2>
-            <h3 className='card-date'>
-              {dateFormat(date, 'ddd, mmm dS, yyyy')}
-            </h3>
-          </div>
+          <a href={url} target='_blank' rel='noreferrer' key={id}>
+            <div className='card'>
+              <IoMdClose className='card-remove-icon' />
+              <h1 className='card-title'>{`${title.slice(0, 50)}...`}</h1>
+              <h2 className='card-author'>{author}</h2>
+              <h3 className='card-date'>
+                {dateFormat(date, 'ddd, mmm dS, yyyy')}
+              </h3>
+            </div>
+          </a>
         );
       })}
     </div>
