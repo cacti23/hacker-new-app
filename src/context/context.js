@@ -1,10 +1,11 @@
 import React, { useContext, useReducer, useEffect, createContext } from 'react';
+import { SET_LOADING, SET_STORIES, HANDLE_SEARCH } from './action';
 import reducer from './reducer';
 
 const HACKER_NEWS_API = 'http://hn.algolia.com/api/v1/search?';
 
 const initialState = {
-  isLoading: true,
+  isLoading: false,
   hits: [],
   query: 'react',
   page: 0,
@@ -16,13 +17,19 @@ export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const fetchStories = async url => {
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data.hits);
+    dispatch({ type: SET_LOADING });
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      dispatch({ type: SET_STORIES, payload: data.hits });
+    } catch (error) {
+      console.log(error);
+    }
+    dispatch({ type: SET_LOADING });
   };
 
   const handleSearch = query => {
-    console.log(state.query);
+    dispatch({ type: HANDLE_SEARCH, payload: query });
   };
 
   useEffect(
