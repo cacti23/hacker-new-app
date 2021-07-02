@@ -1,19 +1,27 @@
 import React from 'react';
 import { useGlobalContext } from '../context/context';
 import { FiSearch } from 'react-icons/fi';
-import { GrNext, GrPrevious } from 'react-icons/gr';
+import { GrFormNextLink, GrFormPreviousLink } from 'react-icons/gr';
 
 const SearchFormContainer = () => {
-  const { query, handleSearch, handlePage } = useGlobalContext();
+  const { query, handleSearch, handlePage, isLoading } = useGlobalContext();
 
   return (
     <div className='search-form-container'>
       <div className='prev-next-container'>
-        <div className='prev-container' onClick={() => handlePage('dec')}>
-          <GrPrevious className='prev-btn' />
+        <div
+          className='prev-container'
+          disabled={isLoading}
+          onClick={() => handlePage('dec')}
+        >
+          <GrFormPreviousLink className='prev-btn' />
         </div>
-        <div className='next-container' onClick={() => handlePage('inc')}>
-          <GrNext className='next-btn' />
+        <div
+          className='next-container'
+          disabled={isLoading}
+          onClick={() => handlePage('inc')}
+        >
+          <GrFormNextLink className='next-btn' />
         </div>
       </div>
       <div className='search-form'>
