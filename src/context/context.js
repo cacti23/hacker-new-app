@@ -1,5 +1,10 @@
 import React, { useContext, useReducer, useEffect, createContext } from 'react';
-import { SET_LOADING, SET_STORIES, HANDLE_SEARCH } from './action';
+import {
+  SET_LOADING,
+  SET_STORIES,
+  HANDLE_SEARCH,
+  REMOVE_STORIES,
+} from './action';
 import reducer from './reducer';
 
 const HACKER_NEWS_API = 'http://hn.algolia.com/api/v1/search?';
@@ -32,6 +37,10 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: HANDLE_SEARCH, payload: query });
   };
 
+  const removeStories = id => {
+    dispatch({ type: REMOVE_STORIES, payload: id });
+  };
+
   useEffect(
     () =>
       fetchStories(
@@ -41,7 +50,7 @@ export const AppProvider = ({ children }) => {
   );
 
   return (
-    <AppContext.Provider value={{ ...state, handleSearch }}>
+    <AppContext.Provider value={{ ...state, handleSearch, removeStories }}>
       {children}
     </AppContext.Provider>
   );

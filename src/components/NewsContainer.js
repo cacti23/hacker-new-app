@@ -4,7 +4,7 @@ import { IoMdClose } from 'react-icons/io';
 import dateFormat from 'dateformat';
 
 const NewsContainer = () => {
-  const { stories, isLoading } = useGlobalContext();
+  const { stories, isLoading, removeStories } = useGlobalContext();
 
   if (isLoading) {
     return (
@@ -23,16 +23,20 @@ const NewsContainer = () => {
         let date = new Date(created_at);
         console.log(story);
         return (
-          <a href={url} target='_blank' rel='noreferrer' key={id}>
-            <div className='card'>
-              <IoMdClose className='card-remove-icon' />
+          <div className='card' key={id}>
+            <IoMdClose
+              className='card-remove-icon'
+              onClick={() => removeStories(id)}
+            />
+            <a href={url} target='_blank' rel='noreferrer'>
               <h1 className='card-title'>{`${title.slice(0, 50)}...`}</h1>
-              <h2 className='card-author'>{author}</h2>
-              <h3 className='card-date'>
-                {dateFormat(date, 'ddd, mmm dS, yyyy')}
-              </h3>
-            </div>
-          </a>
+            </a>
+
+            <h2 className='card-author'>{author}</h2>
+            <h3 className='card-date'>
+              {dateFormat(date, 'ddd, mmm dS, yyyy')}
+            </h3>
+          </div>
         );
       })}
     </div>
