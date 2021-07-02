@@ -21,7 +21,7 @@ const NewsContainer = () => {
       {stories.map(story => {
         const { title, objectID: id, author, created_at, url } = story;
         let date = new Date(created_at);
-        console.log(story);
+        console.log(stories);
         return (
           <div className='card' key={id}>
             <IoMdClose
@@ -29,7 +29,7 @@ const NewsContainer = () => {
               onClick={() => removeStories(id)}
             />
             <a href={url} target='_blank' rel='noreferrer'>
-              <h1 className='card-title'>{`${title.slice(0, 50)}...`}</h1>
+              <h1 className='card-title'>{`${title}`}</h1>
             </a>
 
             <h2 className='card-author'>{author}</h2>

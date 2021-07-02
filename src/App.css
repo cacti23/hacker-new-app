@@ -13,6 +13,9 @@
   --clr-loading: #8bd3dd;
   --clr-search-form: #172c66;
   --clr-icon: #001858;
+  --clr-underline: #f582ae;
+
+  --transition: all 0.3s ease;
 }
 
 /* global styles */
@@ -27,6 +30,7 @@
 body {
   font-family: 'Karla', sans-serif;
   background-color: var(--clr-background);
+  overflow: hidden;
 }
 ul {
   list-style-type: none;
@@ -93,7 +97,49 @@ h4 {
   align-items: center;
   padding: 20px;
   padding-left: 30px;
+  margin-bottom: 10px;
+  position: relative;
 }
+
+.prev-next-container {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  display: flex;
+  font-size: 60px;
+  color: var(--clr-button-text);
+}
+
+.prev-container {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-button);
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.next-container {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-button);
+  border-radius: 50%;
+}
+
+.prev-container:hover,
+.next-container:hover {
+  transform: scale(0.98);
+}
+
+/* .prev-btn:hover,
+.next-btn:hover {
+  transform: scale(0.95);
+} */
 
 .search-form {
   width: 600px;
@@ -109,7 +155,7 @@ h4 {
 
 .form-icon {
   margin-right: 10px;
-  font-size: 50px;
+  font-size: 40px;
   color: var(--clr-input);
 }
 
@@ -128,7 +174,7 @@ h4 {
 }
 
 .news-container {
-  padding: 0px 30px;
+  padding: 0px 30px 10px;
   height: 90vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -149,25 +195,32 @@ h4 {
   padding-right: 30px;
   cursor: pointer;
   line-height: 1.2;
-  color: var(--clr-headline);
+  color: var(--clr-paragraph);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: scale(1.02);
 }
 
 .card-title {
   font-size: 30px;
   font-weight: 600;
   font-style: italic;
-  color: #172c66;
+  color: var(--clr-headline);
+  margin-bottom: 10px;
+  position: relative;
 }
 
 .card-author {
-  font-size: 20px;
+  font-size: 22px;
+  margin-bottom: 8px;
 }
 
 .card-date {
-  font-size: 15px;
-  color: var(--clr-button);
+  font-size: 16px;
 }
 
 .card-remove-icon {

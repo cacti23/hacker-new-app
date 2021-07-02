@@ -4,6 +4,7 @@ import {
   SET_STORIES,
   HANDLE_SEARCH,
   REMOVE_STORIES,
+  HANDLE_PAGE,
 } from './action';
 import reducer from './reducer';
 
@@ -14,6 +15,7 @@ const initialState = {
   stories: [],
   query: 'react',
   page: 0,
+  nbPages: 0,
 };
 
 export const AppContext = createContext();
@@ -26,11 +28,15 @@ export const AppProvider = ({ children }) => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      dispatch({ type: SET_STORIES, payload: data.hits });
+      dispatch({
+        type: SET_STORIES,
+        payload: { hits: data.hits, nbPages: data.nbPages },
+      });
+      dispatch({ type: SET_LOADING });
     } catch (error) {
+      dispatch({ type: SET_LOADING });
       console.log(error);
     }
-    dispatch({ type: SET_LOADING });
   };
 
   const handleSearch = query => {
@@ -39,6 +45,10 @@ export const AppProvider = ({ children }) => {
 
   const removeStories = id => {
     dispatch({ type: REMOVE_STORIES, payload: id });
+  };
+
+  const handlePage = value => {
+    dispatch({ type: HANDLE_PAGE, payload: value });
   };
 
   useEffect(
@@ -50,7 +60,9 @@ export const AppProvider = ({ children }) => {
   );
 
   return (
-    <AppContext.Provider value={{ ...state, handleSearch, removeStories }}>
+    <AppContext.Provider
+      value={{ ...state, handleSearch, removeStories, handlePage }}
+    >
       {children}
     </AppContext.Provider>
   );
