@@ -173,13 +173,26 @@ h4 {
   color: var(--clr-input-color);
 }
 
+/* new container */
 .news-container {
   padding: 0px 30px 10px;
   height: 90vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-rows: repeat(5, 200px);
+  gap: 1rem;
+  grid-auto-flow: dense;
   overflow-x: hidden;
+}
+
+.card:nth-child(3n) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.card:nth-child(8n) {
+  grid-column: span 3;
+  grid-row: span 3;
 }
 
 .card {
