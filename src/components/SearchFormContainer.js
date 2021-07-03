@@ -9,20 +9,20 @@ const SearchFormContainer = () => {
   return (
     <div className='search-form-container'>
       <div className='prev-next-container'>
-        <div
+        <button
           className='prev-container'
           disabled={isLoading}
           onClick={() => handlePage('dec')}
         >
           <GrFormPreviousLink className='prev-btn' />
-        </div>
-        <div
+        </button>
+        <button
           className='next-container'
           disabled={isLoading}
           onClick={() => handlePage('inc')}
         >
           <GrFormNextLink className='next-btn' />
-        </div>
+        </button>
       </div>
       <div className='search-form'>
         <FiSearch className='form-icon' />
