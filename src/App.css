@@ -104,12 +104,13 @@ h4 {
   padding-left: 30px;
   margin-bottom: 10px;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 /* prev next btn  */
 .prev-next-container {
   position: absolute;
-  top: 10px;
   right: 50px;
   display: flex;
   color: var(--clr-button-text);
@@ -308,5 +309,54 @@ h4 {
   .card:nth-child(1n) {
     grid-row: span 1;
     grid-column: span 1;
+  }
+
+  .search-form-container {
+    padding: 20px;
+  }
+
+  .search-form {
+    width: 420px;
+  }
+
+  .form-icon {
+    font-size: 30px;
+  }
+
+  .form-input {
+    width: 350px;
+    height: 40px;
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 698px) {
+  .prev-container,
+  .next-container {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 593px) {
+  .search-form-container {
+    padding: 10px;
+  }
+
+  .search-form {
+    width: 320px;
+  }
+
+  .form-icon {
+    font-size: 20px;
+  }
+
+  .form-input {
+    width: 280px;
+    height: 40px;
+    font-size: 25px;
+  }
+
+  .prev-next-container {
+    right: 10px;
   }
 }
