@@ -8,7 +8,7 @@ import {
 } from './action';
 import reducer from './reducer';
 
-const HACKER_NEWS_API = 'http://hn.algolia.com/api/v1/search?';
+const HACKER_NEWS_API = 'https://hn.algolia.com/api/v1/search?';
 
 const initialState = {
   isLoading: false,
