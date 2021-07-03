@@ -21,7 +21,6 @@ const NewsContainer = () => {
       {stories.map(story => {
         const { title, objectID: id, author, created_at, url } = story;
         let date = new Date(created_at);
-        console.log(stories);
         return (
           <div className='card' key={id}>
             <IoMdClose
