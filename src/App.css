@@ -290,3 +290,23 @@ h4 {
   right: 15px;
   color: var(--clr-icon);
 }
+
+/* media queries */
+@media screen and (max-width: 1224px) {
+  .news-container {
+    grid-template-rows: repeat(5, 300px);
+    padding: 0px 10px 10px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .news-container {
+    grid-template-columns: repeat(1, minmax(360px, 1fr));
+    grid-template-rows: repeat(5, 160px);
+  }
+
+  .card:nth-child(1n) {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+}
